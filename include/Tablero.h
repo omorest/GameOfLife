@@ -21,6 +21,8 @@ class Tablero {
     int getCols();
 
     Celula* operator[] (int position);
+
+    void write();
   private:
     int pos(int row, int col);
 };

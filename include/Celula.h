@@ -1,5 +1,6 @@
-#include <iostream>
 #pragma once
+#include <iostream>
+#include <string>
 
 #include "Tablero.h"
 
@@ -23,4 +24,6 @@ class Celula {
 
     int actualizarEstado();
     int contarVecinas(Tablero& tablero);
+
+    friend ostream& operator<< (ostream& os, const Celula& celula);
 };

@@ -34,10 +34,18 @@ int Tablero::getCols() {
 }
 
 
-
-
 Celula* Tablero::operator[] (const int position) {
   return malla_[position];
 }
 
 //---------------------------------------------------
+void Tablero::write() {
+  for (int i = 0; i < rows_ + 2; i++) {
+    for (int j = 0; j < cols_ + 2; j++) {
+      // cout << "1 ";
+      cout << malla_[i * (rows_ + 2) + j]->getEstado();
+    }
+    cout << endl;    
+  }
+  
+}
