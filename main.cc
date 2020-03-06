@@ -1,6 +1,8 @@
 #include <iostream>
+#include "include/Tablero.h"
 
-int main(int argc, char const *argv[]) {
+
+int main() {
   
   return 0;
 }
