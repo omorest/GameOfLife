@@ -20,7 +20,13 @@ class Tablero {
     int getRows();
     int getCols();
 
+    Celula* at(int i, int j);
+
+    void play(int turns);
+
     Celula* operator[] (int position);
+
+    Celula* position (int i, int j);
 
     void write();
   private:
