@@ -8,7 +8,7 @@ Tablero::Tablero(int rows, int cols) {
 
   for (int i = 0; i < rows_ + 2 ; i++) {
     for (int j = 0; j < cols_ + 2; j++) {
-      malla_[i * (rows_ + 2) + j] = new Celula;
+      malla_[pos(i,j)] = new Celula;
     }    
   }  
 }
@@ -16,7 +16,7 @@ Tablero::Tablero(int rows, int cols) {
 Tablero::~Tablero() {
   for (int i = 0; i < rows_ + 2 ; i++) {
     for (int j = 0; j < cols_ + 2; j++) {
-      delete[] malla_[i * (rows_ + 2) + j];
+      delete[] malla_[pos(i,j)];
     } 
   }
 
@@ -43,9 +43,17 @@ void Tablero::write() {
   for (int i = 0; i < rows_ + 2; i++) {
     for (int j = 0; j < cols_ + 2; j++) {
       // cout << "1 ";
-      cout << malla_[i * (rows_ + 2) + j]->getEstado();
+      cout << malla_[pos(i,j)]->getEstado();
     }
     cout << endl;    
   }
   
+}
+
+
+
+
+//------------------ Private -------------------------
+int Tablero::pos(int row, int col) {
+  return row * (rows_ + 2) + col;
 }
