@@ -1,5 +1,6 @@
 #include "../include/Tablero.h"
 
+//--------- Constructor y Destructor---------------
 Tablero::Tablero(int rows, int cols) {
   rows_ = rows;
   cols_ = cols;
@@ -7,17 +8,15 @@ Tablero::Tablero(int rows, int cols) {
   malla_ = new Celula* [(rows_ + 2) * (cols_ + 2)];
 
   for (int i = 0; i < rows_ + 2 ; i++) {
-    for (int j = 0; j < cols_ + 2; j++) {
-      malla_[pos(i,j)] = new Celula;
-    }    
+    for (int j = 0; j < cols_ + 2; j++)
+      malla_[pos(i,j)] = new Celula;    
   }  
 }
 
 Tablero::~Tablero() {
   for (int i = 0; i < rows_ + 2 ; i++) {
-    for (int j = 0; j < cols_ + 2; j++) {
-      delete[] malla_[pos(i,j)];
-    } 
+    for (int j = 0; j < cols_ + 2; j++)
+      delete[] malla_[pos(i,j)]; 
   }
 
   delete[] malla_;
@@ -25,7 +24,6 @@ Tablero::~Tablero() {
 
 
 //---------------------------------------------------
-
 int Tablero::getRows() {
   return rows_;
 }
@@ -40,17 +38,13 @@ Celula* Tablero::operator[] (const int position) {
 
 //---------------------------------------------------
 void Tablero::write() {
-  for (int i = 0; i < rows_ + 2; i++) {
-    for (int j = 0; j < cols_ + 2; j++) {
-      // cout << "1 ";
+  for (int i = 0; i < rows_; i++) {
+    for (int j = 0; j < cols_; j++) {
       cout << malla_[pos(i,j)]->getEstado();
     }
     cout << endl;    
   }
-  
 }
-
-
 
 
 //------------------ Private -------------------------
