@@ -25,16 +25,22 @@ int Celula::setEstado(int newState) {
   return estado_;
 }
 
-// int Celula::actualizarEstado() {
+int Celula::actualizarEstado() {
+  if (estado_ == 0 && vecinasVivas_ == 3)
+    estado_ = 1;
 
-// }
+  if (estado_ == 1 && (vecinasVivas_ == 2 || vecinasVivas_ == 3))
+    estado_ = 1;
+
+  return estado_;  
+}
 
 int Celula::contarVecinas(Tablero& tablero) {
   vecinasVivas_ = 0;
 
   for (int i = row_ - 1; i <= row_ + 1; i++) {
     for (int j = col_ - 1; j <= col_ + 1; j++) {
-      if (tablero[i * tablero.getRows() + j] -> estado_ == 1)
+      if (tablero[i * (tablero.getRows() + 2) + j] -> estado_ == 1)
         vecinasVivas_++;    
     }    
   }
