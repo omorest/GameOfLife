@@ -13,15 +13,24 @@ int main() {
 
   Tablero tablero(rows, cols);
 
-  tablero.position(0,0)->setEstado(1);
-  tablero.position(0,1)->setEstado(1);
-  tablero.position(1,0)->setEstado(1);
-  tablero.position(1,2)->setEstado(1);
+  //tablero.position(0,0)->setEstado(1);
+  tablero.position(2,2)->setEstado(1);
+  tablero.position(2,3)->setEstado(1);
+  tablero.position(2,4)->setEstado(1);
 
-  cout << tablero.position(1,2)->actualizarEstado();
+  tablero.position(3,2)->setEstado(1);
+  tablero.position(3,3)->setEstado(1);
+  tablero.position(3,4)->setEstado(1);
+
+  tablero.position(4,2)->setEstado(1);
+  tablero.position(4,3)->setEstado(1);
+  tablero.position(4,4)->setEstado(1);
+  //tablero.write();
+
+  //cout << tablero.position(0,0)->contarVecinas(tablero);
   
+  tablero.play(5);
 
-
-  exit(1);
+  //exit(0);
   return 0;
 }

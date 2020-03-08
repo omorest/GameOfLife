@@ -1,5 +1,7 @@
-#include <iostream>
 #pragma once
+#include <iostream>
+#include <thread>         // std::this_thread::sleep_for
+#include <chrono>
 #include "Celula.h"
 
 using namespace std;

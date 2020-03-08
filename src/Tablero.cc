@@ -9,7 +9,7 @@ Tablero::Tablero(int rows, int cols) {
 
   for (int i = 0; i < rows_ + 2 ; i++) {
     for (int j = 0; j < cols_ + 2; j++)
-      malla_[pos(i,j)] = new Celula;    
+      malla_[pos(i,j)] = new Celula(i,j);    
   }  
 }
 
@@ -35,17 +35,21 @@ void Tablero::play(int turns) {
   int i = 0;
 
   while (i < turns) {
-    for (int i = 0; i < rows_ + 2 ; i++) {
-      for (int j = 0; j < cols_ + 2; j++)
+    write();
+    cout << endl;
+    
+    for (int i = 1; i < rows_ + 1; i++) {
+      for (int j = 1; j < cols_ + 1; j++)
         malla_[pos(i,j)]->contarVecinas(*this);    
     }  
 
-    for (int i = 0; i < rows_ + 2 ; i++) {
-      for (int j = 0; j < cols_ + 2; j++)
+    for (int i = 1; i < rows_ + 1 ; i++) {
+      for (int j = 1; j < cols_ + 1; j++)
         malla_[pos(i,j)]->actualizarEstado();    
-    }
-
+    }    
     write();
+    i++;
+    std::this_thread::sleep_for (std::chrono::seconds(1));
   }
 }
 
@@ -56,10 +60,7 @@ Celula* Tablero::operator[] (const int position) {
 }
 
 Celula* Tablero::position (int i, int j) {
-  i += 1;
-  j += 1;
-
-  return malla_[pos(i,j)];
+  return malla_[pos(i + 1, j + 1)];
 }
 
 
@@ -67,7 +68,12 @@ Celula* Tablero::position (int i, int j) {
 void Tablero::write() {
   for (int i = 0; i < rows_ + 2; i++) {
     for (int j = 0; j < cols_ + 2; j++) {
-      cout << malla_[pos(i,j)]->getEstado();
+      if (malla_[pos(i,j)]->getEstado() == 0) {
+        cout << ".";
+      }
+      else {
+        cout << "X";
+      } 
     }
     cout << endl;    
   }
