@@ -22,15 +22,12 @@ class Tablero {
     int getRows();
     int getCols();
 
-    Celula* at(int i, int j);
-
     void play(int turns);
+    Celula* position (int i, int j);
+    void write();
 
     Celula* operator[] (int position);
-
-    Celula* position (int i, int j);
-
-    void write();
+    
   private:
     int pos(int row, int col);
 };

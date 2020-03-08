@@ -23,19 +23,22 @@ Tablero::~Tablero() {
 }
 
 
-//---------------------------------------------------
+//------------------Getters ----------------------------------
 int Tablero::getRows() {
   return rows_;
 }
+
+
 int Tablero::getCols() {
   return cols_;
 }
 
+
 void Tablero::play(int turns) {
   int i = 0;
-
-  while (i < turns) {
-    write();
+  write();
+  
+  while (i < turns) {    
     cout << endl;
     
     for (int i = 1; i < rows_ + 1; i++) {
@@ -46,25 +49,21 @@ void Tablero::play(int turns) {
     for (int i = 1; i < rows_ + 1 ; i++) {
       for (int j = 1; j < cols_ + 1; j++)
         malla_[pos(i,j)]->actualizarEstado();    
-    }    
+    }  
+
     write();
+
     i++;
     std::this_thread::sleep_for (std::chrono::seconds(1));
   }
 }
 
 
-
-Celula* Tablero::operator[] (const int position) {
-  return malla_[position];
-}
-
 Celula* Tablero::position (int i, int j) {
   return malla_[pos(i + 1, j + 1)];
 }
 
 
-//---------------------------------------------------
 void Tablero::write() {
   for (int i = 0; i < rows_ + 2; i++) {
     for (int j = 0; j < cols_ + 2; j++) {
@@ -79,6 +78,10 @@ void Tablero::write() {
   }
 }
 
+
+Celula* Tablero::operator[] (const int position) {
+  return malla_[position];
+}
 
 //------------------ Private -------------------------
 int Tablero::pos(int row, int col) {

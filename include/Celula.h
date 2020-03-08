@@ -15,7 +15,6 @@ class Celula {
     int vecinasVivas_;
 
   public:
-    Celula();
     Celula(int row, int col);
     ~Celula();
 

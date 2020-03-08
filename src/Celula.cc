@@ -1,8 +1,6 @@
 #include "../include/Celula.h"
 
-Celula::Celula() {
-}
-
+//--------- Constructor y destructor ------------
 Celula::Celula(int row, int col) {
   row_ = row;
   col_ = col;
@@ -10,11 +8,12 @@ Celula::Celula(int row, int col) {
   vecinasVivas_ = 0;
 }
 
+
 Celula::~Celula() {
 }
 
-//------------------------------------------------
 
+//------------------------------------------------
 int Celula::getEstado() const {
   return estado_;
 }
@@ -29,6 +28,7 @@ int Celula::actualizarEstado() {
   if (estado_ == 0 && vecinasVivas_ == 3)
     estado_ = 1;  
 
+
   if (estado_ == 1 && (vecinasVivas_ == 2 || vecinasVivas_ == 3)) {
     estado_ = 1;
   }
@@ -36,9 +36,9 @@ int Celula::actualizarEstado() {
     estado_ = 0;
   }
 
-  //cout << "Fila: " << row_ << "\nCol: " << col_ << "\nVecinas: " << vecinasVivas_ << "\nEstado: " << estado_ << endl << endl;
   return estado_;  
 }
+
 
 int Celula::contarVecinas(Tablero& tablero) {
   vecinasVivas_ = 0;
