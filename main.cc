@@ -3,7 +3,7 @@
 
 int main() {
 
-  int rows, cols;
+  int rows, cols, liveCells, numberOfTurns;
 
   cout << "Introduzca el tamaño deseado del tablero" << endl;
   cout << "Numero filas : " << endl;
@@ -11,26 +11,28 @@ int main() {
   cout << "Numero columnas : " << endl;
   cin >> cols;
 
+  cout << "\nIndique el número de celulas vivas quiere para comenzar: " << endl;
+  cin >> liveCells;
+
+  cout << "\nIndique el numero de turnos que quiere: " << endl;
+  cin >> numberOfTurns;
+  
   Tablero tablero(rows, cols);
 
-  //tablero.position(0,0)->setEstado(1);
-  tablero.position(2,2)->setEstado(1);
-  tablero.position(2,3)->setEstado(1);
-  tablero.position(2,4)->setEstado(1);
+  int turn = 0;
+  int i, j;
 
-  tablero.position(3,2)->setEstado(1);
-  tablero.position(3,3)->setEstado(1);
-  tablero.position(3,4)->setEstado(1);
+  while (turn < liveCells) {
+    cout << "Indique la posicion de la celula viva numero " << turn + 1 << endl;
+    cin >> i >> j;
 
-  tablero.position(4,2)->setEstado(1);
-  tablero.position(4,3)->setEstado(1);
-  tablero.position(4,4)->setEstado(1);
-  //tablero.write();
+    tablero.position(i,j)->setEstado(1);
 
-  //cout << tablero.position(0,0)->contarVecinas(tablero);
+    turn++;
+  }
+
   
-  tablero.play(5);
+  tablero.play(numberOfTurns);
 
-  //exit(0);
   return 0;
 }
