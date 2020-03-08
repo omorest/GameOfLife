@@ -36,8 +36,10 @@ int Tablero::getCols() {
 
 void Tablero::play(int turns) {
   int i = 0;
+
+  cout << "\nEstado inicial del tablero" << endl;
   write();
-  
+  cout << endl << endl; 
   while (i < turns) {    
     cout << endl;
     
