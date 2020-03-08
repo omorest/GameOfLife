@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <cassert>
 #include <thread>         // std::this_thread::sleep_for
 #include <chrono>
 #include "Celula.h"

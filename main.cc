@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 #include "include/Tablero.h"
 
 int main() {
@@ -13,6 +14,7 @@ int main() {
 
   cout << "\nIndique el número de celulas vivas quiere para comenzar: " << endl;
   cin >> liveCells;
+  assert(("El numero de celulas vivas que quiere es mayor al tablero", liveCells <= rows * cols));
 
   cout << "\nIndique el numero de turnos que quiere: " << endl;
   cin >> numberOfTurns;

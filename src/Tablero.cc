@@ -60,6 +60,7 @@ void Tablero::play(int turns) {
 
 
 Celula* Tablero::position (int i, int j) {
+  assert(("¡¡La posicion que quiere no existe en el tablero!!", i + 1 <= rows_ && j + 1 <= cols_));
   return malla_[pos(i + 1, j + 1)];
 }
 
