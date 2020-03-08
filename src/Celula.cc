@@ -18,11 +18,13 @@ int Celula::getEstado() const {
   return estado_;
 }
 
+
 int Celula::setEstado(int newState) {
   estado_ = newState;
 
   return estado_;
 }
+
 
 int Celula::actualizarEstado() {
   if (estado_ == 0 && vecinasVivas_ == 3)
