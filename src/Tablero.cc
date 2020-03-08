@@ -65,13 +65,13 @@ Celula* Tablero::position (int i, int j) {
 
 
 void Tablero::write() {
-  for (int i = 0; i < rows_ + 2; i++) {
-    for (int j = 0; j < cols_ + 2; j++) {
+  for (int i = 1; i < rows_ + 1; i++) {
+    for (int j = 1; j < cols_ + 1; j++) {
       if (malla_[pos(i,j)]->getEstado() == 0) {
-        cout << ".";
+        cout << "_ ";
       }
       else {
-        cout << "X";
+        cout << "X ";
       } 
     }
     cout << endl;    

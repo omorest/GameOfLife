@@ -55,14 +55,3 @@ int Celula::contarVecinas(Tablero& tablero) {
 
   return vecinasVivas_;
 }
-
-
-ostream& operator<< (ostream& os, const Celula& celula) {
-   if (celula.getEstado() == 0) {
-     os << " ";
-   }
-   else {
-     os << "X";
-   }
-  return os;
-}
