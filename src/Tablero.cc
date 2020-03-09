@@ -60,17 +60,17 @@ void Tablero::play(int turns) {
 
         malla_[pos(i,j)]->actualizarEstado();
 
-        if (malla_[pos(i,j)]-> getEstado() != beforeState)        {
+        if (malla_[pos(i,j)]-> getEstado() != beforeState)
           changeState++;
-        }
       }     
     }  
 
     cout << "Cambios de estado: " << changeState << endl;
+    std::this_thread::sleep_for (std::chrono::seconds(1));
     write();
 
     i++;
-    std::this_thread::sleep_for (std::chrono::seconds(1));
+    
   }
 }
 
