@@ -40,8 +40,13 @@ void Tablero::play(int turns) {
   cout << "\nEstado inicial del tablero" << endl;
   write();
   cout << endl << endl; 
+
+
   while (i < turns) {    
+    int changeState = 0;
+    
     cout << endl;
+    cout << "Turno " << i + 1 << endl;
     
     for (int i = 1; i < rows_ + 1; i++) {
       for (int j = 1; j < cols_ + 1; j++)
@@ -49,10 +54,19 @@ void Tablero::play(int turns) {
     }  
 
     for (int i = 1; i < rows_ + 1 ; i++) {
-      for (int j = 1; j < cols_ + 1; j++)
-        malla_[pos(i,j)]->actualizarEstado();    
+      for (int j = 1; j < cols_ + 1; j++){
+        int beforeState = 0;
+        beforeState = malla_[pos(i,j)]->getEstado();
+
+        malla_[pos(i,j)]->actualizarEstado();
+
+        if (malla_[pos(i,j)]-> getEstado() != beforeState)        {
+          changeState++;
+        }
+      }     
     }  
 
+    cout << "Cambios de estado: " << changeState << endl;
     write();
 
     i++;
