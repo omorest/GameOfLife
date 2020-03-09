@@ -102,5 +102,5 @@ Celula* Tablero::operator[] (const int position) {
 
 //------------------ Private -------------------------
 int Tablero::pos(int row, int col) {
-  return row * (rows_ + 2) + col;
+  return row * (cols_ + 2) + col;
 }

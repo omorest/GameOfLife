@@ -47,7 +47,7 @@ int Celula::contarVecinas(Tablero& tablero) {
 
   for (int i = row_ - 1; i <= row_ + 1; i++) {
     for (int j = col_ - 1; j <= col_ + 1; j++) {
-      if (tablero[i * (tablero.getRows() + 2) + j] -> estado_ == 1) {
+      if (tablero[i * (tablero.getCols() + 2) + j] -> estado_ == 1) {
         vecinasVivas_++; 
       }                       
     }        
