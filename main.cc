@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cassert>
-#include "include/Board.h"
+#include "include/Tablero.h"
 
 int main() {
 
@@ -19,7 +19,7 @@ int main() {
   cout << "\nIndique el numero de turnos que quiere: " << endl;
   cin >> numberOfTurns;
   
-  Board tablero(rows, cols);
+  Tablero tablero(rows, cols);
 
   int turn = 0;
   int i, j;
@@ -27,7 +27,8 @@ int main() {
   while (turn < liveCells) {
     cout << "Indique la posicion de la celula viva numero " << turn + 1 << endl;
     cin >> i >> j;
-    tablero[i][j]->setState(1);
+
+    tablero.position(i,j)->setEstado(1);
 
     turn++;
   }
