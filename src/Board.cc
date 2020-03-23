@@ -51,8 +51,8 @@ void Board::play(int turns) {
     
     for (int i = 1; i < table_.size() - 1; i++) {
       for (int j = 1; j < table_[i].size() - 1; j++){
-        cout << "celula : " << i << " " << j << endl;
-        table_[i][j]->countNeightbors(*this);    }
+        table_[i][j]->countNeightbors(*this);    
+      }
     }  
 
     for (int i = 1; i < table_.size() - 1; i++) {
@@ -71,16 +71,15 @@ void Board::play(int turns) {
     std::this_thread::sleep_for (std::chrono::seconds(1));
     write();
 
-    i++;
-    
+    i++;    
   }
 }
 
 
 
 void Board::write() {
-  for (int i = 1; i < rows_ + 1; i++) {
-    for (int j = 1; j < cols_ + 1; j++) {
+  for (int i = 0; i < rows_ + 2; i++) {
+    for (int j = 0; j < cols_ + 2; j++) {
       if (table_[i][j]->getState() == 0) {
         cout << "_ ";
       }

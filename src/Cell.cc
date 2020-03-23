@@ -53,7 +53,7 @@ int Cell::countNeightbors(Board& board) {
     for (int j = col_ - 1; j <= col_ + 1; j++) {
       cout << "j = " << j << endl;
       cout << "vecina: "<< i << " " << j << endl;
-      
+      //cout << board[2][0]->getState() << endl;
       if (board[i][j] -> state_ == 1)
         neightborsLive_++;
     }
