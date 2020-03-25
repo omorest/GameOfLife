@@ -17,7 +17,7 @@ Board::Board(int rows, int cols):
 Board::~Board() {
   for (int i = 0; i < table_.size(); i++) {
     for (int j = 0; j < table_[i].size(); j++) {
-      delete[] table_[i][j];
+      delete(table_[i][j]);
     }
   } 
 }

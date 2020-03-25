@@ -5,7 +5,10 @@
 #include "Cell.h"
 //Librería Vector creada en la práctica 1
 #include "Vector.h"
+#include <vector>
 
+
+using namespace std;
 
 class Cell;
 

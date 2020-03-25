@@ -146,6 +146,7 @@ void Vector<T>::buildVector() {
 }
 
 //Eliminamos la memoria reservada del vector
+
 template <class T>
 void Vector<T>::removeVector() {
   if (v_ != NULL) {
