@@ -14,7 +14,8 @@ class Cell;
 
 class Board {
   private:
-    Vector<Vector<Cell*>> table_;
+    
+    vector<vector<Cell*>> table_;
 
     int rows_, cols_;
 
@@ -28,7 +29,7 @@ class Board {
     void play(int turns);
     void write();
 
-		Vector<Cell*> operator[](const int position) {
+		vector<Cell*> operator[](const int position) {
 			return table_[position];
 		}
 };

@@ -150,6 +150,7 @@ void Vector<T>::buildVector() {
 template <class T>
 void Vector<T>::removeVector() {
   if (v_ != NULL) {
+    cout << "prueba" << endl;
     delete[] v_; 
     v_ = NULL;   
   }
