@@ -15,10 +15,11 @@ Cell1::Cell1(int row, int col) : Cell(row, col) {}
 
 
 //Regla para seguir viva morir
-int Cell1::updateStatus(void) {
+int Cell1::updateState(void) {
   if (neightborsLive_ == 2 || neightborsLive_ == 3) {
     return 1;
   }
+
   else {
     return 0;
   }  

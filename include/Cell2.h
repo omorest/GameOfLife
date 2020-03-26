@@ -19,7 +19,7 @@ class Cell2 : public Cell{
   public:
     Cell2(int row, int col);
 
-    int updateStatus(void);
+    int updateState(void);
     int getState(void) const;
     ostream& show(ostream& os) const;
 };

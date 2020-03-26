@@ -19,7 +19,7 @@ class Cell1 : public Cell {
   public:
     Cell1(int row, int col);
 
-    int updateStatus(void);
+    int updateState(void);
     int getState(void) const;
     std::ostream& show(std::ostream& os) const;
 };

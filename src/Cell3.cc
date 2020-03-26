@@ -17,8 +17,8 @@ Cell3::Cell3(int row, int col) : Cell(row, col)
 
 
 //---- Reglas de seguir viva o morir -----
-int Cell3::updateStatus(void) {
-  if (neightborsLive_ == 5 || neightborsLive_ == 1) {
+int Cell3::updateState(void) {
+  if (neightborsLive_ == 1 || neightborsLive_ == 5) {
     return 3;
   } 
   else{

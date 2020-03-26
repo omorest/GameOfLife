@@ -17,7 +17,7 @@ Cell2::Cell2(int row, int col) : Cell(row, col) {}
 
 
 //Reglas de seguir viva o morir
-int Cell2::updateStatus(void) {
+int Cell2::updateState(void) {
   if (neightborsLive_ == 2 || neightborsLive_ == 4 || neightborsLive_ == 5) {
     return 3;
   }

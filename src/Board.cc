@@ -49,9 +49,7 @@ void Board::play(int turns) {
   write();
   cout << endl << endl;
 
-  while (i < turns) {    
-    int changeState = 0;
-    
+  while (i < turns) {        
     cout << endl;
     cout << "Turno " << i + 1 << endl;
     
@@ -63,18 +61,11 @@ void Board::play(int turns) {
 
     for (int i = 1; i < table_.size() - 1; i++) {
       for (int j = 1; j < table_[i].size() - 1; j++){
-        int beforeState = 0;
-        beforeState = table_[i][j]->getState();
-
         int newType = table_[i][j]->updateState();
-        table_[i][j] = table_[i][j]->createCelula(newType, i, j);
-
-        if (table_[i][j]-> getState() != beforeState)
-          changeState++;
-      }     
+        table_[i][j] = table_[i][j]->createCelula(newType, i, j); 
+      }  
     }  
 
-    cout << "Cambios de estado: " << changeState << endl;
     std::this_thread::sleep_for (std::chrono::seconds(1));
     write();
 
