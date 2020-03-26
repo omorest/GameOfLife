@@ -1,7 +1,20 @@
+/**
+ * @file Cell.cc
+ * @author Óscar Moreira Estévez (alu0101209067@ull.edu.es)
+ * @version 2.0
+ * @date 2020-03-26
+ * Subject: Algoritmos y Estructuras de Datos Avanzadas
+ * Practice: 3
+ * Purpose: The game of life
+ */
+
 #include "../include/Cell.h"
 #include "../include/Cell1.h"
 #include "../include/Cell2.h"
 #include "../include/Cell3.h"
+
+
+//------- Constructor --------
 
 Cell::Cell(int row, int col) {
     row_ = row;
@@ -9,32 +22,40 @@ Cell::Cell(int row, int col) {
     neightborsLive_ = 0;
 }
 
+
+
+//---- Destructor ----
+
 Cell::~Cell() {
 }
+
+
+
+//------------- Methods -------------------
 
 Cell* Cell::createCelula(int typeCell, int row, int col) {
   Cell* newCell;
 
   switch (typeCell) {
-  case 0:
-    newCell = new Cell(row, col);
-    break;
-  
-  case 1:
-    newCell = new Cell1(row, col);
-    break;
+    case 0:
+      newCell = new Cell(row, col);
+      break;
+    
+    case 1:
+      newCell = new Cell1(row, col);
+      break;
 
-  case 2:
-    newCell = new Cell2(row, col);
-    break;
+    case 2:
+      newCell = new Cell2(row, col);
+      break;
 
-  case 3:
-    newCell = new Cell3(row, col);
-    break;
+    case 3:
+      newCell = new Cell3(row, col);
+      break;
 
-  default:
-    cout << "Este tipo de celula no se acepta" << endl;
-    break;
+    default:
+      cout << "Este tipo de celula no se acepta" << endl;
+      break;
   }
 
   return newCell;
@@ -47,7 +68,7 @@ int Cell::getState() const {
 }
 
 
-// Renacer celulas
+// Reglas para renacer
 int Cell::updateState() { 
   if (neightborsLive_ == 3)
     return 1;
