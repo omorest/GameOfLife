@@ -1,3 +1,13 @@
+/**
+ * @file Board.h
+ * @author Óscar Moreira Estévez (alu0101209067@ull.edu.es)
+ * @version 2.0
+ * @date 2020-03-26
+ * Subject: Algoritmos y Estructuras de Datos Avanzadas
+ * Practice: 3
+ * Purpose: The game of life
+ */
+
 #ifndef BOARD
 #define BOARD
 
@@ -5,18 +15,14 @@
 #include <thread>         // std::this_thread::sleep_for
 #include <chrono>
 #include "Cell.h"
-//Librería Vector creada en la práctica 1
-#include "Vector.h"
 #include <vector>
-
 
 using namespace std;
 
 class Cell;
 
 class Board {
-  private:
-    
+  private:    
     vector<vector<Cell*>> table_;
 
     int rows_, cols_;
@@ -32,8 +38,6 @@ class Board {
     void write();
     void activateCell(int type, int row, int col);
 
-		vector<Cell*> operator[](const int position) {
-			return table_[position];
-		}
+		vector<Cell*> operator[](const int position);
 };
 #endif

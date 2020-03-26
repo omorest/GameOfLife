@@ -1,5 +1,6 @@
 #include "../include/Board.h"
 
+//-------- Constructor----------
 Board::Board(int rows, int cols):
   rows_(rows),
   cols_(cols) 
@@ -16,6 +17,7 @@ Board::Board(int rows, int cols):
 
 
 
+//-------- Destructor----------
 Board::~Board() {
   for (int i = 0; i < table_.size(); i++) {
     for (int j = 0; j < table_[i].size(); j++) {
@@ -26,9 +28,11 @@ Board::~Board() {
 
 
 
+//-------- Getters ---------
 int Board::getRows() {
   return rows_;
 }
+
 
 
 int Board::getCols() {
@@ -37,13 +41,13 @@ int Board::getCols() {
 
 
 
+//------------- Methods -------------
 void Board::play(int turns) {
   int i = 0;
 
   cout << "\nEstado inicial del tablero" << endl;
   write();
-  cout << endl << endl; 
-
+  cout << endl << endl;
 
   while (i < turns) {    
     int changeState = 0;
@@ -93,4 +97,11 @@ void Board::write() {
 
 void Board::activateCell(int type, int row, int col) {
   table_[row][col] = table_[row][col]->createCelula(type, row, col);  
+}
+
+
+
+//----------- Sobrecarga operador -----------
+vector<Cell*> Board::operator[](const int position) {
+  return table_[position];
 }
