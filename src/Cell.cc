@@ -15,7 +15,6 @@
 
 
 //------- Constructor --------
-
 Cell::Cell(int row, int col) {
     row_ = row;
     col_ = col;
@@ -25,14 +24,12 @@ Cell::Cell(int row, int col) {
 
 
 //---- Destructor ----
-
 Cell::~Cell() {
 }
 
 
 
 //------------- Methods -------------------
-
 Cell* Cell::createCelula(int typeCell, int row, int col) {
   Cell* newCell;
 
