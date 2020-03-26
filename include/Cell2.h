@@ -16,11 +16,11 @@
 using namespace std;
 
 class Cell2 : public Cell{
-	public:
-		Cell2(int row, int col);
+  public:
+    Cell2(int row, int col);
 
-		int updateStatus(void);
-		int getState(void) const;
-		ostream& show(ostream& os) const;
+    int updateStatus(void);
+    int getState(void) const;
+    ostream& show(ostream& os) const;
 };
 #endif
