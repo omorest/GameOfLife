@@ -1,8 +1,12 @@
 #include "../include/Cell2.h"
 
-Cell2::Cell2(int row, int col) : Cell(row, col) 
-{}
 
+//-------- Constructor --------------
+Cell2::Cell2(int row, int col) : Cell(row, col) {}
+
+
+
+//Reglas de seguir viva o morir
 int Cell2::updateStatus(void) {
   if (neightborsLive_ == 2 || neightborsLive_ == 4 || neightborsLive_ == 5) {
     return 3;
