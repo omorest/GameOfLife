@@ -1,43 +1,66 @@
 #include "../include/Cell.h"
+#include "../include/Cell1.h"
+#include "../include/Cell2.h"
+#include "../include/Cell3.h"
 
 Cell::Cell(int row, int col) {
     row_ = row;
     col_ = col;
-    state_ = 0;
     neightborsLive_ = 0;
 }
 
 Cell::~Cell() {
 }
 
+Cell* Cell::createCelula(int typeCell, int row, int col) {
+  Cell* newCell;
+
+  switch (typeCell) {
+  case 0:
+    newCell = new Cell(row, col);
+    break;
+  
+  case 1:
+    newCell = new Cell1(row, col);
+    break;
+
+  case 2:
+    newCell = new Cell2(row, col);
+    break;
+
+  case 3:
+    newCell = new Cell3(row, col);
+    break;
+
+  default:
+    cout << "Este tipo de celula no se acepta" << endl;
+    break;
+  }
+
+  return newCell;
+}
+
+
 
 int Cell::getState() const {
-  return state_;
+  return 0;
 }
 
 
+// Renacer celulas
+int Cell::updateState() { 
+  if (neightborsLive_ == 3)
+    return 1;
 
-int Cell::setState(int newState) {
-  state_ = newState;
+  else if (neightborsLive_ == 3 || neightborsLive_ == 6 || neightborsLive_ == 8)
+    return 2;
 
-  return state_;
-}
+  else if (neightborsLive_ == 3 || neightborsLive_ == 4 || neightborsLive_ == 6)
+    return 3;  
 
-
-
-int Cell::updateState() {
-  if (state_ == 0 && neightborsLive_ == 3) {
-    state_ = 1;
-  }
-
-  if (state_ == 1 && (neightborsLive_ == 2 || neightborsLive_ == 3)) {
-    state_ = 1;
-  }
   else {
-    state_ = 0;
+    return 0;
   }
-
-  return state_;  
 }
 
 
@@ -47,13 +70,21 @@ int Cell::countNeightbors(Board& board) {
 
   for (int i = row_ - 1; i <= row_ + 1; i++) {
     for (int j = col_ - 1; j <= col_ + 1; j++) {
-      if (board[i][j] -> state_ == 1)
+      if (board[i][j] -> getState() != 0)
         neightborsLive_++;
     }
   }
 
-  if (state_ == 1)
+  if (getState() != 0)
     neightborsLive_ -= 1; 
   
   return neightborsLive_;
+}
+
+
+
+ostream& Cell::show(std::ostream& os) const
+{
+  os << "_ ";
+  return os;
 }

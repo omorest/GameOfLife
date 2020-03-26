@@ -14,6 +14,8 @@ Board::Board(int rows, int cols):
   }      
 }
 
+
+
 Board::~Board() {
   for (int i = 0; i < table_.size(); i++) {
     for (int j = 0; j < table_[i].size(); j++) {
@@ -60,7 +62,8 @@ void Board::play(int turns) {
         int beforeState = 0;
         beforeState = table_[i][j]->getState();
 
-        table_[i][j]->updateState();
+        int newType = table_[i][j]->updateState();
+        table_[i][j] = table_[i][j]->createCelula(newType, i, j);
 
         if (table_[i][j]-> getState() != beforeState)
           changeState++;
@@ -78,15 +81,16 @@ void Board::play(int turns) {
 
 
 void Board::write() {
-  for (int i = 0; i < rows_ + 2; i++) {
-    for (int j = 0; j < cols_ + 2; j++) {
-      if (table_[i][j]->getState() == 0) {
-        cout << "_ ";
-      }
-      else {
-        cout << "X ";
-      } 
+  for (int i = 1; i < rows_ + 1; i++) {
+    for (int j = 1; j < cols_ + 1; j++) {
+      table_[i][j]->show(cout);      
     }
-    cout << endl;    
+    cout << endl;
   }
+}
+
+
+
+void Board::activateCell(int type, int row, int col) {
+  table_[row][col] = table_[row][col]->createCelula(type, row, col);  
 }

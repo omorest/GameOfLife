@@ -2,6 +2,7 @@
 #include <cassert>
 #include "include/Board.h"
 
+
 int main() {
 
   int rows, cols, liveCells, numberOfTurns;
@@ -22,18 +23,17 @@ int main() {
   Board tablero(rows, cols);
 
   int turn = 0;
-  int i, j;
+  int type, i, j;
 
   while (turn < liveCells) {
     cout << "Indique la posicion de la celula viva numero " << turn + 1 << endl;
-    cin >> i >> j;
-    tablero[i][j]->setState(1);
+    cin >> type >> i >> j;
+    tablero.activateCell(type, i, j) ;
 
     turn++;
   }
 
   
   tablero.play(numberOfTurns);
-
   return 0;
 }

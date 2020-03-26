@@ -1,4 +1,6 @@
-#pragma once
+#ifndef BOARD
+#define BOARD
+
 #include <cassert>
 #include <thread>         // std::this_thread::sleep_for
 #include <chrono>
@@ -28,8 +30,10 @@ class Board {
 
     void play(int turns);
     void write();
+    void activateCell(int type, int row, int col);
 
 		vector<Cell*> operator[](const int position) {
 			return table_[position];
 		}
 };
+#endif
