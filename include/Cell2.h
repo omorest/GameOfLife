@@ -20,7 +20,7 @@ class Cell2 : public Cell{
 		Cell2(int row, int col);
 
 		int updateStatus(void);
-  	int getState(void) const;
-  	ostream& show(ostream& os) const;
+		int getState(void) const;
+		ostream& show(ostream& os) const;
 };
 #endif
